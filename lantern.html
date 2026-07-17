@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đèn kéo quân</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: #222;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .scene {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            perspective: 1000px;
+        }
+
+        .cylinder {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 10s linear infinite;
+        }
+
+        .cylinder img {
+            position: absolute;
+            width: 150px;
+            height: 200px;
+            left: 75px;
+            top: 40px;
+            object-fit: cover;
+            border: 3px solid white;
+            border-radius: 10px;
+        }
+
+        .cylinder img:nth-child(1) {
+            transform: rotateY(0deg) translateZ(180px);
+        }
+
+        .cylinder img:nth-child(2) {
+            transform: rotateY(60deg) translateZ(180px);
+        }
+
+        .cylinder img:nth-child(3) {
+            transform: rotateY(120deg) translateZ(180px);
+        }
+
+        .cylinder img:nth-child(4) {
+            transform: rotateY(180deg) translateZ(180px);
+        }
+
+        .cylinder img:nth-child(5) {
+            transform: rotateY(240deg) translateZ(180px);
+        }
+
+        .cylinder img:nth-child(6) {
+            transform: rotateY(300deg) translateZ(180px);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .pause {
+            animation-play-state: paused;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+
+    <h1>Đèn kéo quân</h1>
+
+    <div class="scene">
+
+        <div class="cylinder" id="lantern">
+
+            <img src="https://picsum.photos/id/1015/300/400" alt="Ảnh 1">
+            <img src="https://picsum.photos/id/1025/300/400" alt="Ảnh 2">
+            <img src="https://picsum.photos/id/1035/300/400" alt="Ảnh 3">
+            <img src="https://picsum.photos/id/1045/300/400" alt="Ảnh 4">
+            <img src="https://picsum.photos/id/1055/300/400" alt="Ảnh 5">
+            <img src="https://picsum.photos/id/1065/300/400" alt="Ảnh 6">
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const lantern = document.getElementById("lantern");
+
+        lantern.addEventListener("mouseover", function () {
+            lantern.classList.add("pause");
+        });
+
+        lantern.addEventListener("mouseout", function () {
+            lantern.classList.remove("pause");
+        });
+
+    </script>
+
+</body>
+
+</html>
